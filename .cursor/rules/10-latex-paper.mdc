@@ -1,0 +1,14 @@
+---
+description: LaTeX paper structure and writing rules
+alwaysApply: true
+---
+
+The paper lives in `paper/` and is written in LaTeX.
+
+Rules:
+- Keep `paper/main.tex` as the compile entry point.
+- Edit substantive prose in `paper/sections/`, `paper/appendix/`, or `paper/frontmatter/`.
+- Do not fabricate citations, evidence, coefficients, tables, or figures.
+- Keep causal language aligned with `docs/IDENTIFICATION.md`.
+- Compile with `make -C paper pdf` when paper files change and TeX is available.
+- Report the first meaningful LaTeX error rather than deleting content to make compilation pass.

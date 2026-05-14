@@ -1,0 +1,16 @@
+---
+description: Durable research memory rules
+alwaysApply: true
+---
+
+Source-of-truth files:
+- `RESEARCH.md`: concise current project constitution.
+- `docs/TASKS.md`: task queue.
+- `docs/DECISIONS.md`: PI-approved durable decisions.
+- `docs/WHAT_WE_TRIED.md`: failed, rejected, and ambiguous attempts.
+- `docs/DATA_SOURCES.md`: data provenance.
+- `docs/IDENTIFICATION.md`: causal/descriptive logic.
+- `docs/RESULTS_LOG.md`: traceable results.
+- `docs/LITERATURE_MAP.md`: project-specific literature positioning.
+
+Session logs are not source-of-truth. Consolidate important lessons into the durable files.

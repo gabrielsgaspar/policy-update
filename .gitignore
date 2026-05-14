@@ -216,3 +216,73 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Research project data and outputs
+!code/build/
+!code/build/.gitkeep
+data/raw/**
+!data/raw/
+!data/raw/**/
+!data/raw/**/.gitkeep
+data/interim/**
+!data/interim/
+!data/interim/**/
+!data/interim/**/.gitkeep
+data/clean/**
+!data/clean/
+!data/clean/**/
+!data/clean/**/.gitkeep
+data/processed/**
+!data/processed/
+!data/processed/**/
+!data/processed/**/.gitkeep
+data/analysis/**
+!data/analysis/
+!data/analysis/**/
+!data/analysis/**/.gitkeep
+data/external/**
+!data/external/
+!data/external/**/
+!data/external/**/.gitkeep
+
+# Generated outputs
+outputs/**
+!outputs/
+!outputs/**/
+!outputs/**/.gitkeep
+
+# Local databases and model artifacts
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.sqlite3
+*.parquet
+*.feather
+*.arrow
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+*.pt
+*.pth
+*.safetensors
+
+# Credentials and local secrets
+.env.*
+!.env.example
+secrets/
+credentials/
+
+# LaTeX build products
+paper/*.aux
+paper/*.bbl
+paper/*.bcf
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.run.xml
+paper/*.synctex.gz
+paper/*.toc
+paper/*.pdf

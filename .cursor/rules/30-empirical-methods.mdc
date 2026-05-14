@@ -1,0 +1,23 @@
+---
+description: Empirical-methods and regression skill routing
+alwaysApply: false
+---
+
+Use regression skills when appropriate:
+- `reg-fe` for fixed effects.
+- `reg-did` for DID and event studies.
+- `reg-iv` for IV.
+- `reg-rdd` for RDD.
+
+Before proposing or running regressions, specify:
+- estimand;
+- unit of observation;
+- sample;
+- outcome;
+- treatment/key regressor;
+- controls and fixed effects;
+- clustering/inference;
+- input data;
+- output path;
+- interpretation rules;
+- validation checks.
