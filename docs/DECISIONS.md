@@ -30,6 +30,19 @@ Record durable PI decisions only.
 - Revisit date: TBD.
 - Related tasks: P0-001.
 
+### D-2026-05-14-003: Approve feasibility-only measurement-first identification-ready pilot
+
+- Date: 2026-05-14
+- Decision maker: PI
+- Context: The research council recommended that the first data phase should test source recoverability, measurement validity, and identification readiness before full scraping, parsing, modeling, or empirical analysis.
+- Options considered: proceed directly to full collection and analysis; run only a comment-recovery pilot; run a feasibility-only pilot that includes measurement and identification requirements from the start.
+- Decision: Approve the feasibility-only, measurement-first, identification-ready pilot before any full scraping, parsing, modeling, or empirical analysis.
+- Rationale: The project's viability depends on whether comments are recoverable at usable scale, whether timestamps/order and archive completeness are defensible, whether duplicate mirrors can be controlled, whether ethics rules are settled, and whether later issue/proposal measurement can be validated.
+- Objections / risks: The pilot may reveal insufficient comment coverage, non-random archive gaps, weak timestamp information, unresolved source restrictions, or measurement error large enough to require pivoting the first paper.
+- Consequences: Initial work should focus on ethics, source inventory, Wayback/CDX coverage, Internet Archive item inspection, URL inventory, provenance requirements, bounded pilot collection, quality checks, and a feasibility memo. Full collection, modeling, and empirical analysis remain gated by PI approval after the pilot report.
+- Revisit date: After the pilot data report and feasibility memo.
+- Related tasks: P0-004, P0-101, P0-102, P0-103, P1-104, P1-105, P1-106, P0-201, P0-202, P0-301, P0-307, P0-401, P0-402.
+
 ## Template
 
 ### D-YYYY-MM-DD-001: [Decision title]

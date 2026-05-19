@@ -1,6 +1,6 @@
 # Research Project
 
-Last updated: 2026-05-14
+Last updated: 2026-05-16
 
 ## One-sentence pitch
 
@@ -53,13 +53,13 @@ See `docs/IDENTIFICATION.md`.
 
 Current design is best described as predictive/associational until the data and timing structure are validated. The main candidate designs are issue-week lead-lag panels, proposal-level event history, placebo tests, comparison-party outcomes, and institutionalization-break heterogeneity.
 
-## Main results so far
+## Main outputs so far
 
-None. The repository is organized, but no data collection or analysis has been executed.
+The repository is organized and PI-approved BeppeGrillo.it feasibility collection has been executed for 2005-2007. Current generated outputs recover 507 candidate 2005 post paths, 507 successfully retrieved/parsed 2005 post pages, 445 2005 posts with parsed comments, and 270,151 parsed 2005 comments. The 2006 pass recovers 468 candidate post paths, 439 successfully retrieved/parsed pages, 365 posts with parsed comments, and 442,328 parsed comments. The 2007 pass recovers 538 candidate post paths, 538 successfully retrieved/parsed pages, 326 posts with parsed comments, and 273,625 parsed comments, with zero remaining failed post pages in the current CDX-derived inventory. These are data-construction outputs, not empirical results.
 
 ## Current bottleneck
 
-Historical comment recoverability and completeness: whether enough comment threads, dates/order, pagination, and archival coverage can be recovered to support valid measurement.
+Historical comment recoverability and completeness beyond 2007: whether the 2008-2013 windows can reach similar coverage, whether remaining archive-visible comment gaps are due to missing captures or parser/pagination limits, and whether later M5S outputs can be aligned at usable temporal precision.
 
 ## Target audience / journals
 
@@ -69,7 +69,8 @@ TBD. Likely audiences include political economy, comparative politics, party pol
 
 - [x] idea formation
 - [x] contribution validation, initial
-- [ ] data construction
+- [x] data construction, 2005 feasibility slice
+- [ ] data construction, full pilot windows
 - [ ] identification design, formal memo
 - [ ] analysis
 - [ ] drafting

@@ -1,6 +1,6 @@
 # DATA.md
 
-Last updated: 2026-05-13
+Last updated: 2026-05-16
 
 ## Purpose
 
@@ -104,6 +104,8 @@ Historical domain patterns to inventory:
 - http://www.beppegrillo.it/archives/
 
 Potential issue: current Beppe Grillo pages may preserve post bodies but not all historical comment threads. We should treat current pages as one source, not the authoritative complete source for comments.
+
+Current BeppeGrillo.it feasibility slices: Wayback-based collection has recovered 507 candidate 2005 post paths with 507 successfully retrieved/parsed pages, 445 posts with parsed comments, and 270,151 parsed comments. The 2006 pass has recovered 468 candidate post paths, 439 successfully retrieved/parsed pages, 365 posts with parsed comments, and 442,328 parsed comments; 29 2006 post pages remain `no_successful_capture` after targeted retries. The 2007 pass has recovered 538 candidate post paths, 538 successfully retrieved/parsed pages, 326 posts with parsed comments, and 273,625 parsed comments; no 2007 post pages remain `no_successful_capture` in the current CDX-derived inventory. Raw HTML is stored under `data/raw/wayback/html/beppegrillo_{year}/`; interim parsed posts/comments and coverage audits are stored under `data/interim/` and `docs/source_notes/`.
 
 ### Il Blog delle Stelle
 

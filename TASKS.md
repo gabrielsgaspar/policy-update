@@ -38,11 +38,18 @@ Governance rules:
 ### Recommended next tasks
 
 1. `[ ]` P0-002: Freeze the first research design memo.
-2. `[ ]` P0-004: Decide data ethics rules.
-3. `[ ]` P0-101: Build seed URL list for core domains.
-4. `[ ]` P0-102: Query Wayback CDX for Beppe Grillo domains.
-5. `[ ]` P0-103: Query Wayback CDX for Il Blog delle Stelle.
-6. `[ ]` P1-105: Inspect Internet Archive item `BeppeGrillo.it2005`.
+2. `[x]` P0-004: Decide data ethics rules.
+3. `[x]` P0-101: Build seed URL list for core domains.
+4. `[~]` P0-102: Query Wayback CDX for Beppe Grillo domains.
+5. `[x]` P0-103: Query Wayback CDX for Il Blog delle Stelle.
+6. `[x]` P1-105: Inspect Internet Archive item `BeppeGrillo.it2005`.
+7. `[x]` P1-106: Build initial URL inventory table.
+8. `[~]` P1-104: Query Wayback CDX for M5S official domains.
+9. `[~]` P0-201: Implement raw downloader.
+10. `[~]` P0-301: Define database schema.
+11. `[~]` P0-202: Download pilot raw pages, 2005-2007 BeppeGrillo.it first pass.
+12. `[~]` P0-303: Implement legacy Beppe Grillo/Wayback parser.
+13. `[~]` P0-307: Create archive completeness metrics.
 
 ## Phase 0: Research design and repository setup
 
@@ -81,19 +88,20 @@ Governance rules:
 
 ### P0-004: Decide data ethics rules
 
-- Status: `[ ]`
+- Status: `[x]`
 - Output: Short ethics/data-handling protocol.
 - Acceptance criteria:
   - Defines how commenter names are stored and hashed.
   - Defines what can be quoted in papers/presentations.
   - Defines whether raw comment data can be shared.
   - Defines restricted/raw data access rules.
+- Implementation note: Protocol drafted in `docs/data_ethics_protocol.md`.
 
 ## Phase 1: Source inventory
 
 ### P0-101: Build seed URL list for core domains
 
-- Status: `[ ]`
+- Status: `[x]`
 - Output: `data/metadata/seed_urls.csv`
 - Sources:
   - https://beppegrillo.it/
@@ -107,10 +115,11 @@ Governance rules:
 - Acceptance criteria:
   - Each seed has source type, priority, notes, and expected content type.
   - Includes historical domain variants with `http`/`https` and `www`/non-`www`.
+- Implementation note: Generated with `code/extract/build_seed_urls.py`.
 
 ### P0-102: Query Wayback CDX for Beppe Grillo domains
 
-- Status: `[ ]`
+- Status: `[~]`
 - Output: `data/raw/wayback/cdx/beppegrillo_cdx.jsonl` and parsed Parquet.
 - Example query:
   - `https://web.archive.org/cdx?url=www.beppegrillo.it/*&output=json&fl=timestamp,original,statuscode,mimetype,digest,length&filter=statuscode:200&filter=mimetype:text/html&collapse=digest`
@@ -118,19 +127,21 @@ Governance rules:
   - CDX records stored raw and parsed.
   - Counts by year, mimetype, and domain variant reported.
   - Duplicate capture strategy documented.
+- Implementation note: Pilot-window `2005-2013` metadata queries were run for `www.beppegrillo.it/*` and `beppegrillo.it/*`. Both hit the 50,000-record per-query cap, so full pagination/resume-key collection remains before treating the inventory as exhaustive. See `docs/source_notes/cdx_inventory_report.md`.
 
 ### P0-103: Query Wayback CDX for Il Blog delle Stelle
 
-- Status: `[ ]`
+- Status: `[x]`
 - Output: `data/raw/wayback/cdx/blogdellestelle_cdx.jsonl` and parsed Parquet.
 - Acceptance criteria:
   - CDX records stored raw and parsed.
   - Counts by year and URL pattern reported.
   - Candidate legacy post URLs identified.
+- Implementation note: CDX metadata and initial URL classifications generated. Pilot-period coverage is sparse for 2012-2013, with much larger later-period coverage. See `docs/source_notes/cdx_inventory_report.md`.
 
 ### P1-104: Query Wayback CDX for M5S official domains
 
-- Status: `[ ]`
+- Status: `[~]`
 - Output: `data/raw/wayback/cdx/movimento5stelle_cdx.jsonl` and parsed Parquet.
 - Domains:
   - `www.movimento5stelle.it`
@@ -141,10 +152,11 @@ Governance rules:
 - Acceptance criteria:
   - Program/campaign/platform pages are identified.
   - PDF and HTML outputs are separated.
+- Implementation note: HTML CDX metadata was collected for approved domains in `2005-2013`. PDF queries returned zero records for several domains and 504 timeouts for two domains; targeted PDF retries remain. See `data/raw/wayback/cdx/cdx_failures.jsonl` and `docs/source_notes/cdx_inventory_report.md`.
 
 ### P1-105: Inspect Internet Archive item `BeppeGrillo.it2005`
 
-- Status: `[ ]`
+- Status: `[x]`
 - Source: https://archive.org/details/BeppeGrillo.it2005
 - Output: source note in `docs/source_notes/internet_archive_beppegrillo_2005.md`
 - Acceptance criteria:
@@ -152,21 +164,23 @@ Governance rules:
   - Determine whether comments are included.
   - Determine whether files are easier to parse than Wayback snapshots.
   - Record license/access constraints.
+- Implementation note: Metadata inspection found media/image derivatives and metadata files, not a parseable HTML/WARC site archive. See `docs/source_notes/internet_archive_beppegrillo_2005.md`.
 
 ### P1-106: Build initial URL inventory table
 
-- Status: `[ ]`
+- Status: `[x]`
 - Output: `data/metadata/url_inventory.parquet`
 - Acceptance criteria:
   - Every candidate URL has normalized URL, domain, source type, first-seen source, date guess, priority, and notes.
   - Includes Wayback timestamp for archived records.
   - Deduplicates by normalized URL and content digest where available.
+- Implementation note: Generated `data/metadata/url_inventory.parquet`, sample CSV, and source-type summary with `code/extract/build_url_inventory.py`.
 
 ## Phase 2: Raw collection
 
 ### P0-201: Implement raw downloader
 
-- Status: `[ ]`
+- Status: `[~]`
 - Output: `code/extract/download_raw.py`
 - Acceptance criteria:
   - Downloads live URLs with rate limiting.
@@ -174,10 +188,11 @@ Governance rules:
   - Stores raw files by source and content hash.
   - Writes fetch metadata to `fetches` table.
   - Retries transient failures and logs permanent failures.
+- Implementation note: Initial downloader added at `code/extract/download_raw.py` and syntax-checked. It has not yet been smoke-tested on a selected pilot sample.
 
 ### P0-202: Download pilot raw pages
 
-- Status: `[ ]`
+- Status: `[~]`
 - Output: raw HTML for pilot windows.
 - Pilot windows:
   - 2005-2006
@@ -187,6 +202,7 @@ Governance rules:
   - At least 300 candidate post pages downloaded if available.
   - At least 100 candidate pages with visible or recoverable comments identified if available.
   - Fetch success rate reported.
+- Implementation note: PI-approved BeppeGrillo.it passes completed for 2005-2007 in the current CDX-derived inventory. Current outputs identify 507 2005 post paths, 507 successfully retrieved/parsed pages, 445 posts with parsed comments, and 270,151 parsed comments. The 2006 pass identifies 468 post paths, 439 successfully retrieved/parsed pages, 365 posts with parsed comments, and 442,328 parsed comments; 29 2006 post pages remain `no_successful_capture`. The 2007 pass identifies 538 post paths, 538 successfully retrieved/parsed pages, 326 posts with parsed comments, and 273,625 parsed comments; no 2007 post pages remain `no_successful_capture` in the current CDX-derived inventory. Raw HTML is under `data/raw/wayback/html/beppegrillo_{year}/`; fetch attempts are in `data/interim/fetches/beppegrillo_{year}_fetch_attempts.*`. Remaining pilot windows are not yet collected.
 
 ### P1-203: Download initial M5S programs
 
@@ -215,7 +231,7 @@ Governance rules:
 
 ### P0-301: Define database schema
 
-- Status: `[ ]`
+- Status: `[~]`
 - Output: `code/db/schema.sql`
 - Tables:
   - `sources`
@@ -232,6 +248,7 @@ Governance rules:
   - Schema runs in DuckDB.
   - Primary keys and foreign keys are defined where practical.
   - Date/time fields are standardized.
+- Implementation note: Initial schema added at `code/db/schema.sql`. DuckDB is not installed in the current Python environment, so execution validation remains.
 
 ### P0-302: Implement current Beppe Grillo parser
 
@@ -244,13 +261,14 @@ Governance rules:
 
 ### P0-303: Implement legacy Beppe Grillo/Wayback parser
 
-- Status: `[ ]`
+- Status: `[~]`
 - Output: `code/parse/parser_beppegrillo_legacy.py`
 - Acceptance criteria:
   - Handles at least two historical templates.
   - Extracts comments where present.
   - Handles comment pagination if present.
   - Emits template type and completeness flags.
+- Implementation note: Parser now handles observed 2005 legacy embedded comments, `sotto commenti` blocks, and later threaded `comment-parent-id-depth` blocks. Unit tests and explicit pagination recovery remain.
 
 ### P1-304: Implement Il Blog delle Stelle parser
 
@@ -282,13 +300,14 @@ Governance rules:
 
 ### P0-307: Create archive completeness metrics
 
-- Status: `[ ]`
+- Status: `[~]`
 - Output: `data/processed/archive_coverage.parquet`
 - Acceptance criteria:
   - Counts captures per URL/post.
   - Estimates comment recovery ratio where visible comment counts exist.
   - Flags incomplete pagination.
   - Produces coverage score by post/thread.
+- Implementation note: Archive-listing count audit implemented in `code/extract/audit_beppegrillo_2005_coverage.py`, producing year-specific `data/interim/parsed_posts/beppegrillo_{year}_archive_vs_parsed_comments.*` and `docs/source_notes/beppegrillo_{year}_coverage_audit.md` for 2005-2007. Processed coverage scores remain to be built.
 
 ## Phase 4: Pilot corpus and descriptive analysis
 
@@ -303,7 +322,7 @@ Governance rules:
 
 ### P0-402: Produce pilot data report
 
-- Status: `[ ]`
+- Status: `[~]`
 - Output: `docs/source_notes/pilot_data_report.md`
 - Acceptance criteria:
   - Reports post/comment recovery by year.
@@ -311,6 +330,7 @@ Governance rules:
   - Reports timestamp availability.
   - Reports spam/duplicate rates.
   - Identifies the best years and source types for scaling.
+- Implementation note: Year-specific reports are available at `docs/source_notes/beppegrillo_2005_collection_report.md`, `docs/source_notes/beppegrillo_2005_coverage_audit.md`, `docs/source_notes/beppegrillo_2006_collection_report.md`, `docs/source_notes/beppegrillo_2006_coverage_audit.md`, `docs/source_notes/beppegrillo_2007_collection_report.md`, and `docs/source_notes/beppegrillo_2007_coverage_audit.md`. Full multi-window pilot report remains.
 
 ### P1-403: Create event calendar v0
 
@@ -535,14 +555,14 @@ These are the tasks to do first, in order.
 
 1. `[x]` Create repository and folder structure. `P0-001`
 2. `[ ]` Freeze the first research design memo. `P0-002`
-3. `[ ]` Decide data ethics rules. `P0-004`
-4. `[ ]` Create seed URL list. `P0-101`
-5. `[ ]` Query Wayback CDX for Beppe Grillo domains. `P0-102`
-6. `[ ]` Query Wayback CDX for Il Blog delle Stelle. `P0-103`
-7. `[ ]` Inspect `BeppeGrillo.it2005` Internet Archive item. `P1-105`
-8. `[ ]` Build initial URL inventory table. `P1-106`
-9. `[ ]` Implement raw downloader. `P0-201`
-10. `[ ]` Define database schema. `P0-301`
+3. `[x]` Decide data ethics rules. `P0-004`
+4. `[x]` Create seed URL list. `P0-101`
+5. `[~]` Query Wayback CDX for Beppe Grillo domains. `P0-102`
+6. `[x]` Query Wayback CDX for Il Blog delle Stelle. `P0-103`
+7. `[x]` Inspect `BeppeGrillo.it2005` Internet Archive item. `P1-105`
+8. `[x]` Build initial URL inventory table. `P1-106`
+9. `[~]` Implement raw downloader. `P0-201`
+10. `[~]` Define database schema. `P0-301`
 
 ## First milestone: feasibility decision
 

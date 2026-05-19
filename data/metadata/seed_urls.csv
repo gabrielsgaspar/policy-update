@@ -1,0 +1,35 @@
+seed_id,url,normalized_url,domain,source_group,expected_content_type,priority,first_seen_source,notes
+BG-LIVE-001,https://beppegrillo.it/,https://beppegrillo.it/,beppegrillo.it,beppegrillo_live,html,P0,DATA.md,Current Beppe Grillo official site.
+BG-LIVE-002,https://beppegrillo.it/blog/,https://beppegrillo.it/blog,beppegrillo.it,beppegrillo_live,html,P0,DATA.md,Current blog landing page.
+BG-LIVE-003,https://beppegrillo.it/category/archivio/,https://beppegrillo.it/category/archivio,beppegrillo.it,beppegrillo_live,html,P0,DATA.md,Current archive category landing page.
+BG-LIVE-004,https://beppegrillo.it/category/archivio/2005/,https://beppegrillo.it/category/archivio/2005,beppegrillo.it,beppegrillo_live,html,P0,DATA.md,Current 2005 archive entry point.
+BG-HIST-001,http://www.beppegrillo.it/,http://www.beppegrillo.it/,www.beppegrillo.it,beppegrillo_wayback,html,P0,DATA.md,Historical www/http domain variant.
+BG-HIST-002,https://www.beppegrillo.it/,https://www.beppegrillo.it/,www.beppegrillo.it,beppegrillo_wayback,html,P0,DATA.md,Historical www/https domain variant.
+BG-HIST-003,http://beppegrillo.it/,http://beppegrillo.it/,beppegrillo.it,beppegrillo_wayback,html,P0,DATA.md,Historical non-www/http domain variant.
+BG-HIST-004,https://beppegrillo.it/,https://beppegrillo.it/,beppegrillo.it,beppegrillo_wayback,html,P0,DATA.md,Historical non-www/https domain variant.
+BG-HIST-005,http://www.beppegrillo.it/archives/,http://www.beppegrillo.it/archives,www.beppegrillo.it,beppegrillo_wayback,html,P0,DATA.md,Legacy archive path.
+BG-HIST-006,https://www.beppegrillo.it/archives/,https://www.beppegrillo.it/archives,www.beppegrillo.it,beppegrillo_wayback,html,P0,DATA.md,Legacy archive path over https.
+BDS-LIVE-001,https://www.ilblogdellestelle.it/,https://www.ilblogdellestelle.it/,www.ilblogdellestelle.it,blogdellestelle_live,html,P0,DATA.md,Il Blog delle Stelle current site.
+BDS-HIST-001,http://www.ilblogdellestelle.it/,http://www.ilblogdellestelle.it/,www.ilblogdellestelle.it,blogdellestelle_wayback,html,P0,DATA.md,Historical http domain variant.
+BDS-HIST-002,https://www.ilblogdellestelle.it/2005/12/le_buone_azioni.html,https://www.ilblogdellestelle.it/2005/12/le_buone_azioni.html,www.ilblogdellestelle.it,blogdellestelle_wayback,html,P0,DATA.md,Legacy-style seed URL from project notes.
+M5S-LIVE-001,https://www.movimento5stelle.it/,https://www.movimento5stelle.it/,www.movimento5stelle.it,m5s_live,html,P1,DATA.md,Current M5S official .it site.
+M5S-LIVE-002,https://www.movimento5stelle.eu/,https://www.movimento5stelle.eu/,www.movimento5stelle.eu,m5s_live,html,P1,DATA.md,Current/historical M5S .eu site.
+M5S-LIVE-003,https://portale.movimento5stelle.eu/,https://portale.movimento5stelle.eu/,portale.movimento5stelle.eu,m5s_live,html,P1,DATA.md,M5S portal.
+M5S-LIVE-004,https://portale.movimento5stelle.eu/elezioni-trasparenti,https://portale.movimento5stelle.eu/elezioni-trasparenti,portale.movimento5stelle.eu,m5s_live,html,P1,DATA.md,Candidate/election transparency portal seed.
+M5S-LIVE-005,https://www.movimento5stelle.eu/tag/programma/,https://www.movimento5stelle.eu/tag/programma,www.movimento5stelle.eu,m5s_live,html,P1,DATA.md,Program-tag discovery seed.
+M5S-PROG-001,https://www1.interno.gov.it/mininterno/export/sites/default/it/assets/files/25_elezioni/6_MOVIMENTO_5_STELLE.PDF,https://www1.interno.gov.it/mininterno/export/sites/default/it/assets/files/25_elezioni/6_MOVIMENTO_5_STELLE.PDF,www1.interno.gov.it,m5s_programs,pdf,P1,DATA.md,2013 M5S program PDF hosted by Interior Ministry.
+IA-ITEM-001,https://archive.org/details/BeppeGrillo.it2005,https://archive.org/details/BeppeGrillo.it2005,archive.org,internet_archive_item,metadata/html,P1,DATA.md,Internet Archive item to inspect for 2005 files and comments.
+CAMERA-001,https://dati.camera.it/,https://dati.camera.it/,dati.camera.it,parliament_camera,rdf/html/api,P1,DATA.md,Official Chamber open data portal.
+CAMERA-002,https://data.camera.it/,https://data.camera.it/,data.camera.it,parliament_camera,rdf/html/api,P1,DATA.md,Alternate official Chamber data domain.
+SENATO-001,https://www.senato.it/leggi-e-documenti,https://www.senato.it/leggi-e-documenti,www.senato.it,parliament_senate,html/api,P1,DATA.md,Official Senate laws/documents entry point.
+OPENPOLIS-001,https://service.opdm.openpolis.io/docs/,https://service.opdm.openpolis.io/docs,service.opdm.openpolis.io,parliament_openpolis,api_docs,P1,DATA.md,Openpolis/OpenParlamento API documentation.
+OPENPOLIS-002,https://service.opdm.openpolis.io/api-openparlamento/v1/19/bills/,https://service.opdm.openpolis.io/api-openparlamento/v1/19/bills,service.opdm.openpolis.io,parliament_openpolis,json,P1,DATA.md,OpenParlamento bills API example.
+ELIGENDO-001,https://elezionistorico.interno.gov.it/,https://elezionistorico.interno.gov.it/,elezionistorico.interno.gov.it,election_results,html/csv,P2,DATA.md,Interior Ministry historical election archive.
+ELIGENDO-002,https://elezionistorico.interno.gov.it/eligendo/info_opendata.php,https://elezionistorico.interno.gov.it/eligendo/info_opendata.php,elezionistorico.interno.gov.it,election_results,html/csv,P2,DATA.md,Eligendo open-data information page.
+ELIGENDO-003,https://dait.interno.gov.it/elezioni/open-data,https://dait.interno.gov.it/elezioni/open-data,dait.interno.gov.it,election_results,html/csv,P2,DATA.md,Interior Ministry election open-data page.
+CAP-001,https://www.comparativeagendas.net/project/italy,https://www.comparativeagendas.net/project/italy,www.comparativeagendas.net,media_public_controls,html/csv,P1,DATA.md,Italian Policy Agendas / Comparative Agendas project.
+CAP-002,https://www.comparativeagendas.net/,https://www.comparativeagendas.net/,www.comparativeagendas.net,media_public_controls,html/csv,P1,DATA.md,Comparative Agendas project root.
+MANIFESTO-001,https://manifesto-project.wzb.eu/,https://manifesto-project.wzb.eu/,manifesto-project.wzb.eu,comparison_party_controls,html/api/corpus,P1,DATA.md,Manifesto Project data and corpus root.
+GDELT-001,https://docs.gdeltcloud.com/api-reference/v2,https://docs.gdeltcloud.com/api-reference/v2,docs.gdeltcloud.com,media_public_controls,api_docs,P1,DATA.md,GDELT Cloud API documentation.
+TRENDS-001,https://trends.google.com/,https://trends.google.com/,trends.google.com,media_public_controls,web,P2,DATA.md,Google Trends public attention proxy.
+AGCOM-001,https://www.agcom.it/osservatori,https://www.agcom.it/osservatori,www.agcom.it,media_public_controls,html,P2,DATA.md,AGCOM observatories seed.
